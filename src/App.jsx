@@ -1,5 +1,5 @@
-/*
 import { useEffect, useState } from 'react'
+/*
 import { supabase } from './supabaseClient'
 //import { createClient } from "@supabase/supabase-js"
 import Messages from "./Messages.jsx"
@@ -8,7 +8,7 @@ import viteLogo from '/vite.svg'
 */
 
 import Chat from './Chat.jsx'
-
+import Login from './Login.jsx'
 //import './App.css'
 /*
 const SUPABASE_URL = 'https://fxxhuaqchybifkwskqvk.supabase.co'
@@ -67,9 +67,17 @@ function App() {
 */
 
 function App() {
+	const [name, setName] = useState("noname")
+        const [appState, setAppState] = useState("login")
+
+	const modal = {
+		login: <Login setName={setName} setAppState={setAppState} />,
+		chat: <Chat name={name} setAppState={setAppState} />
+	}
+
 	return (
 		<>
-		<Chat/>
+		{modal[appState]}
 		</>
 	)
 }
