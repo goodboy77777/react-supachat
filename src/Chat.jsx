@@ -21,7 +21,7 @@ var myChannel = null
 
 
 
-function Chat() {
+function Chat({name, setAppState}) {
   let defaultMessages = [
 	  {name: "jonny", message: "hello"},
 	  {name: "bobby", message: "world"},
@@ -51,12 +51,36 @@ function Chat() {
   return (() => listener.unsubscribe()) 
   },[])
  
-	
+  function send() {
+	  let input = document.getElementById("input-message")
+	  let value = input.value
+
+	  myChannel.send({
+		  type: 'broadcast',
+		  event: 'message',
+		  payload: {
+			  name: name,
+			  message: value
+		  }
+	  })
+	  input.value = ""
+
+  }
+
+
+  function onKeydownSend() {
+	  if (event.keyCode == 13) {
+		  send()
+	  }
+  }
+
   return (
-    <>
-     <h1>Supachat!</h1>
-     <Messages list={messages} />
-    </>
+  <>
+	<h1>Supachat!</h1>
+	<Messages list={messages} />
+	<input id="input-message" onKeydown={onKeydownSend}></input>
+	  <button  onClick={send}>Send</button>
+  </>
   )
 }
 
