@@ -17,15 +17,9 @@ var test = ":hello:"
 
 console.log("Connected to Supabase!")
 
-//var myChannel = null
-const myChannel = supabase.channel('room', {
-  config: {
-    broadcast: { self: true },
-  },
-})
+var myChannel = null
 
 
-myChannel.subscribe()
 
 function Chat() {
   let defaultMessages = [
@@ -36,6 +30,13 @@ function Chat() {
   const [messages, setMessages] = useState(defaultMessages)
   useEffect(() => {
     console.log("Hopefully subscribing to myChannel")
+   myChannel = supabase.channel('room', {
+  config: {
+    broadcast: { self: true },
+  },
+})
+  myChannel.subscribe()
+
    const listener =  myChannel.on(
   'broadcast',
   { event: 'message' },
@@ -47,7 +48,7 @@ function Chat() {
   })
 	
   console.log("subscribed myChannel now!")
-  //return (() => listener.unsubscribe()) 
+  return (() => listener.unsubscribe()) 
   },[])
  
 	
