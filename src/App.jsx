@@ -1,9 +1,14 @@
+/*
 import { useEffect, useState } from 'react'
 import { supabase } from './supabaseClient'
 //import { createClient } from "@supabase/supabase-js"
 import Messages from "./Messages.jsx"
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+*/
+
+import Chat from './Chat.jsx'
+
 //import './App.css'
 /*
 const SUPABASE_URL = 'https://fxxhuaqchybifkwskqvk.supabase.co'
@@ -11,7 +16,7 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY)
 */
-
+/*
 var test = ":hello:"
 
 
@@ -57,6 +62,16 @@ function App() {
      <Messages list={messages} />
     </>
   )
+}
+
+*/
+
+function App() {
+	return (
+		<>
+		<Chat/>
+		</>
+	)
 }
 
 export default App
