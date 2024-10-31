@@ -27,7 +27,7 @@ const myChannel = supabase.channel('room', {
 
 myChannel.subscribe()
 
-function App() {
+function Chat() {
   let defaultMessages = [
 	  {name: "jonny", message: "hello"},
 	  {name: "bobby", message: "world"},
@@ -59,4 +59,4 @@ function App() {
   )
 }
 
-export default App
+export default Chat
