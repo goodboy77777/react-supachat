@@ -76,10 +76,15 @@ function Chat({name, setAppState}) {
 
   return (
   <>
-	<h1>Supachat!</h1>
+	<style>{` .bot { position: sticky; bottom: 0px;height: 10%;} .top { top: 0px; height: 90%;}`}</style>
+	<div className="tttop">
+	  <h1>Supachat!</h1>
 	<Messages list={messages} />
-	<input id="input-message" onKeyPress={onKeydownSend}></input>
+	</div>  
+	<div className="bot">
+	  <input id="input-message" onKeyPress={onKeydownSend}></input>
 	  <button  onClick={send}>Send</button>
+	  </div>
   </>
   )
 }
