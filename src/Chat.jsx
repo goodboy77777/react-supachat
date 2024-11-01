@@ -68,8 +68,8 @@ function Chat({name, setAppState}) {
   }
 
 
-  function onKeydownSend() {
-	  if (event.keyCode == 13) {
+  function onKeydownSend(event) {
+	  if (event.key === 'Enter') {
 		  send()
 	  }
   }
@@ -78,7 +78,7 @@ function Chat({name, setAppState}) {
   <>
 	<h1>Supachat!</h1>
 	<Messages list={messages} />
-	<input id="input-message" onKeydown={onKeydownSend}></input>
+	<input id="input-message" onKeyPress={onKeydownSend}></input>
 	  <button  onClick={send}>Send</button>
   </>
   )
