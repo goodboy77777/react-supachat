@@ -45,6 +45,13 @@ function Chat({name, setAppState}) {
   	//messages.push(m.message)
 	console.log(m)
 	setMessages(old => [...old,m])
+	 let topElem = document.getElementById("top")
+	  //setTimeout(() => { topElem.scrollTop = topElem.scrollHeight + 100}, 1)
+	  //topElem.scrollIntoView({behavior: 'smooth', block: 'end'})
+	  //topElem.scrollIntoView()
+	  setTimeout(() => { topElem.lastElementChild.scrollIntoView({behavior: 'smooth'}) }, 0)
+
+
   })
 	
   console.log("subscribed myChannel now!")
@@ -64,8 +71,7 @@ function Chat({name, setAppState}) {
 		  }
 	  })
 	  input.value = ""
-
-  }
+	   }
 
 
   function onKeydownSend(event) {
@@ -78,7 +84,7 @@ function Chat({name, setAppState}) {
   <>
 	<style>{` .main { height: 100vh ; width: 100vw} .bot { position: fixed; bottom: 0;height: 10vh;width: 100%;} .top { top: 0; height: 90vh; width: 100% ; overflow: scroll;}`}</style>
 	<div className="main">
-	  <div className="top">
+	  <div id="top" className="top">
 	  <h1>Supachat!</h1>
 	<Messages list={messages} />
 	</div>  
