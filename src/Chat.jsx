@@ -76,14 +76,16 @@ function Chat({name, setAppState}) {
 
   return (
   <>
-	<style>{` .bot { position: sticky; bottom: 0px;height: 10%;} .top { top: 0px; height: 90%;}`}</style>
-	<div className="tttop">
+	<style>{` .main { height: 100vh ; width: 100vw} .bot { position: fixed; bottom: 0;height: 10vh;width: 100%;} .top { top: 0; height: 90vh; width: 100% ; overflow: scroll;}`}</style>
+	<div className="main">
+	  <div className="top">
 	  <h1>Supachat!</h1>
 	<Messages list={messages} />
 	</div>  
 	<div className="bot">
 	  <input id="input-message" onKeyPress={onKeydownSend}></input>
 	  <button  onClick={send}>Send</button>
+	  </div>
 	  </div>
   </>
   )
